@@ -5,79 +5,71 @@
 # datos obtenidos de: https://shre.ink/rTgW
 ciudades = ["Ambato", "Tena"]
 temperaturas = [
-    [  # {cuidad_1}
-        [  # Semana 1
-            {"day": "Lunes", "temp": 24},
-            {"day": "Martes", "temp": 26},
-            {"day": "Miércoles", "temp": 25},
-            {"day": "Jueves", "temp": 23},
-            {"day": "Viernes", "temp": 24},
-            {"day": "Sábado", "temp": 25},
-            {"day": "Domingo", "temp": 26}
+    [
+        [
+            "Lunes", 24,
+            "Martes", 26,
+            "Miércoles", 25,
+            "Jueves", 23,
+            "Viernes", 24,
+            "Sábado", 25,
+            "Domingo", 26
         ],
-        [  # Semana 2
-            {"day": "Lunes", "temp": 26},
-            {"day": "Martes", "temp": 27},
-            {"day": "Miércoles", "temp": 27},
-            {"day": "Jueves", "temp": 31},
-            {"day": "Viernes", "temp": 28},
-            {"day": "Sábado", "temp": 16},
-            {"day": "Domingo", "temp": 16}
+        [
+            "Lunes", 26,
+            "Martes", 27,
+            "Miércoles", 27,
+            "Jueves", 31,
+            "Viernes", 28,
+            "Sábado", 16,
+            "Domingo", 16
         ],
-        [  # Semana 3
-            {"day": "Lunes", "temp": 29},
-            {"day": "Martes", "temp": 31},
-            {"day": "Miércoles", "temp": 29},
-            {"day": "Jueves", "temp": 29},
-            {"day": "Viernes", "temp": 31},
-            {"day": "Sábado", "temp": 29},
-            {"day": "Domingo", "temp": 26}
+        [
+            "Lunes", 29,
+            "Martes", 31,
+            "Miércoles", 29,
+            "Jueves", 29,
+            "Viernes", 31,
+            "Sábado", 29,
+            "Domingo", 26
         ]
     ],
-    [  # Tena
-        [  # Semana 1
-            {"day": "Lunes", "temp": 29},
-            {"day": "Martes", "temp": 31},
-            {"day": "Miércoles", "temp": 29},
-            {"day": "Jueves", "temp": 28},
-            {"day": "Viernes", "temp": 27},
-            {"day": "Sábado", "temp": 30},
-            {"day": "Domingo", "temp": 31}
+    [
+        [
+            "Lunes", 29,
+            "Martes",  31,
+            "Miércoles", 29,
+            "Jueves", 28,
+            "Viernes", 27,
+            "Sábado", 30,
+            "Domingo", 31
         ],
-        [  # Semana 2
-            {"day": "Lunes", "temp": 30},
-            {"day": "Martes", "temp": 32},
-            {"day": "Miércoles", "temp": 31},
-            {"day": "Jueves", "temp": 30},
-            {"day": "Viernes", "temp": 29},
-            {"day": "Sábado", "temp": 29},
-            {"day": "Domingo", "temp": 30}
+        [
+            "Lunes", 30,
+            "Martes", 32,
+            "Miércoles", 31,
+            "Jueves", 30,
+            "Viernes", 29,
+            "Sábado", 29,
+            "Domingo", 30
         ],
-        [  # Semana 3
-            {"day": "Lunes", "temp": 31},
-            {"day": "Martes", "temp": 29},
-            {"day": "Miércoles", "temp": 30},
-            {"day": "Jueves", "temp": 29},
-            {"day": "Viernes", "temp": 30},
-            {"day": "Sábado", "temp": 32},
-            {"day": "Domingo", "temp": 28}
+        [
+            "Lunes", 31,
+            "Martes",  29,
+            "Miércoles", 30,
+            "Jueves", 29,
+            "Viernes", 30,
+            "Sábado", 32,
+            "Domingo", 28
         ]
     ]
 ]
-
-# Calcular el promedio de temperaturas para cada ciudad y semana
-promedios = []
-for ciudad, datos in zip(ciudades, temperaturas):
-    promedios_ciudad = []
-    for semana in datos:
-        suma_temp = 0
-        for dia in semana:
-            suma_temp += dia["temp"]
-        promedio_semana = suma_temp / len(semana)
-        promedios_ciudad.append(promedio_semana)
-    promedios.append(promedios_ciudad)
-
-for i, ciudad in enumerate(ciudades):
-    print(f"Cuidad: {ciudad}")
-    for j, promedio in enumerate(promedios[i]):
-        print(f"  Semana {j + 1}: {promedio:.2f}")
+# Recorrer la lista de temperaturas y calcular el promedio para cada ciudad y semana
+for ciudad, ciudad_temperaturas in enumerate(temperaturas):
+    for semana_index, semana_temperaturas in enumerate(ciudad_temperaturas):
+        dias = semana_temperaturas[::2]  # Obtener los días
+        temps = semana_temperaturas[1::2]  # Obtener las temperaturas
+        promedio_temp = sum(temps) / len(temps)  # Calcular el promedio
+        print(f"Promedio de temperaturas para la ciudad {ciudades[ciudad]} y la semana {semana_index + 1}:")
+        for dia, temp in zip(dias, temps):
+            print(f"{dia}: {temp}°C")
