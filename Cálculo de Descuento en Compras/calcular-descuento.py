@@ -14,7 +14,6 @@ print(f"| Monto de compra 1: {compra_1}$                                        
 print(f"| Descuento aplicado a la compra 1: {des_1:.2f}$                        |")
 print(f"| Valor total al pagar de la compra 1: {monto_final_1:.2f}$                     |")
 print("└-------------------------------------------------------------------┘")
-
 # Segunda llamada
 compra_2 = int(input("\n Ingrese el valor de la compra 2: "))
 porcentaje_des = int(input("Ingrese el porcentaje del descuento: "))
