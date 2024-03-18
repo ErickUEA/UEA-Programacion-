@@ -24,3 +24,4 @@ else:
 del informacion_personal["edad"]
 # Se imprime el diccionario final con la edad eliminada
 print("\nEdad eliminada y Diccionario resultante: ", informacion_personal)
+
