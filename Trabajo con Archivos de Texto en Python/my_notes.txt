@@ -1,0 +1,5 @@
+Ver como hay que crear el archivo python 
+Crear el archivo python
+Comentar el archivo python 
+Subir a GitHub el archivo python 
+Enviar a revisar el archivo
